@@ -117,7 +117,7 @@ function getEmployeeInfo(role) {
     return inquirer.prompt(getPromptByRole(role))
         .then(({ name, id, email, school, github }) => {
             let emp;
-            if (role === 'intern') {
+            if (role === 'Intern') {
                 emp = new Intern(role, name, id, email, school);
             } else {
                 emp = new Engineer(role, name, id, email, github);
