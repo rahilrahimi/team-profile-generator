@@ -2,6 +2,24 @@
 //Manager
 const managerTemplate = (employees) => `
 <div class ="card-body">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+<link rel="stylesheet" href="style.css" />
+
+<div class="text-center">
+<div class="p-4 mb-2 bg-danger text-white">My Team</div>
+  <div class="header">
+  </div>
+  
+  <div class="card">
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text"></p>
+    <p class="card-text"><small class="text-muted"></small></p>
+  </div>
+</div>
+
   <h1 class="card-title bg-primary">${employees.name}</h1>
   <h2 class = "card-subtitle">${employees.getRole()}<h2>
   <ul class="list-group list-group-flush">
@@ -11,7 +29,6 @@ const managerTemplate = (employees) => `
   </ul>
 <div>
   `
-  
 
 //Engineer
 const engineerTemplate = (employees) => {
