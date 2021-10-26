@@ -1,39 +1,40 @@
 //create helper function for each type of employee
 //Manager
 const managerTemplate = (employees) => `
-<div class ="card-body">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
-<link rel="stylesheet" href="style.css" />
 
-<div class="text-center">
-<div class="p-4 mb-2 bg-danger text-white">My Team</div>
-  <div class="header">
-  </div>
-  
-  <div class="card">
+  <div class="card" style="width: 25rem;" >
   <div class="card-body">
-    <h5 class="card-title"></h5>
+  <div class="row justify-content-start">
+  <div class="col-sm-12">
+
+    <h5 class="card-title">
+    <h1 class="card-title bg-primary">${employees.name}</h1>
+    <h2 class = "card-subtitle">${employees.getRole()}<h2>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">${employees.id}</li>
+      <li class="list-group-item"><a href="mailto:${employees.email}">${employees.email}</a></li>
+      <li class="list-group-item">${employees.officeNumber}</li>
+    </ul>
+    </h5>
     <p class="card-text"></p>
     <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+    </div>
   </div>
 </div>
 
-  <h1 class="card-title bg-primary">${employees.name}</h1>
-  <h2 class = "card-subtitle">${employees.getRole()}<h2>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">${employees.id}</li>
-    <li class="list-group-item"><a href="mailto:${employees.email}">${employees.email}</a></li>
-    <li class="list-group-item">${employees.officeNumber}</li>
-  </ul>
+
 <div>
   `
 
 //Engineer
 const engineerTemplate = (employees) => {
-return`
+  return `
+<div class ="card" style="width: 25rem;">
 <div class ="card-body">
+<div class="row justify-content-start">
+<div class="col-sm-12">
+
   <h1 class="card-title bg-primary">${employees.name}</h1>
   <h2 class = "card-subtitle">${employees.getRole()}<h2>
   <ul class="list-group list-group-flush">
@@ -41,13 +42,19 @@ return`
     <li class="list-group-item"><a href="mailto:${employees.email}">${employees.email}</a></li>
     <li class="list-group-item"><a target="_blank" href="https://github.com/${employees.github}">Github</a></li>
   </ul>
-  
-<div>
+  </div>
+  </div>
+  </div>
+</div>
 `};
 
 //Intern
 const internTemplate = (employees) => `
+<div class ="card" style="width: 25rem;">
 <div class ="card-body">
+<div class="row justify-content-start">
+<div class="col-sm-12">
+
   <h1 class="card-title bg-primary">${employees.name}</h1>
   <h2 class = "card-subtitle">${employees.getRole()}<h2>
   <ul class="list-group list-group-flush">
@@ -55,7 +62,10 @@ const internTemplate = (employees) => `
     <li class="list-group-item"><a href="mailto:${employees.email}">${employees.email}</a></li>
     <li class="list-group-item">${employees.school}</li>
   </ul>
-<div>
+  </div>
+  </div>
+</div>
+</div>
 `
 
 //FUNCTION to receive class instances and inserts them to HTML template literal
@@ -72,30 +82,27 @@ const generatePage = (employees) => `
 </head>
 
 <body>
-<div class="row">
-  <div class="col-sm-6">
-    <div class = card>
+<div class="text-center">
+<div class="p-4 mb-2 bg-danger text-white">My Team</div>
       ${employees.map((person) => {
-  
-        console.log(`person.role: ${person.getRole()}`)
-      if (person.getRole() === 'Manager') {
-        console.log('generating manager');
-        return managerTemplate(person)
-      }
-       else if (person.getRole() === 'Engineer') {
-        console.log('generating Engineer');
 
-         return engineerTemplate(person)
-       }
-       else {
-        console.log('person');
+  console.log(`person.role: ${person.getRole()}`)
+  if (person.getRole() === 'Manager') {
+    console.log('generating manager');
+    return managerTemplate(person)
+  }
+  else if (person.getRole() === 'Engineer') {
+    console.log('generating Engineer');
 
-         return internTemplate(person)
-       }
-      }).join("")
-      }
-      </div>
-    </div>
+    return engineerTemplate(person)
+  }
+  else {
+    console.log('person');
+
+    return internTemplate(person)
+  }
+}).join("")
+  }
   </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
