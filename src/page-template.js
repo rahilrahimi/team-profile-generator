@@ -22,7 +22,7 @@ return`
   <ul class="list-group list-group-flush">
     <li class="list-group-item">${employees.id}</li>
     <li class="list-group-item"><a href="mailto:${employees.email}">${employees.email}</a></li>
-    <li class="list-group-item"><a href="https://github.com/${employees.github}">Github</a></li>
+    <li class="list-group-item"><a target="_blank" href="https://github.com/${employees.github}">Github</a></li>
   </ul>
   
 <div>
@@ -75,7 +75,7 @@ const generatePage = (employees) => `
 
          return internTemplate(person)
        }
-      })
+      }).join("")
       }
       </div>
     </div>
