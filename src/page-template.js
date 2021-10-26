@@ -6,25 +6,27 @@ const managerTemplate = (employees) => `
   <h2 class = "card-subtitle">${employees.getRole()}<h2>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">${employees.id}</li>
-    <li class="list-group-item"><a href="${employees.email}">${employees.email}</a></li>
+    <li class="list-group-item"><a href="mailto:${employees.email}">${employees.email}</a></li>
     <li class="list-group-item">${employees.officeNumber}</li>
   </ul>
 <div>
-`
+  `
+  
 
 //Engineer
-const engineerTemplate = (employees) => `
+const engineerTemplate = (employees) => {
+return`
 <div class ="card-body">
   <h1 class="card-title bg-primary">${employees.name}</h1>
   <h2 class = "card-subtitle">${employees.getRole()}<h2>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">${employees.id}</li>
-    <li class="list-group-item"><a href="${employees.email}">${employees.email}</a></li>
+    <li class="list-group-item"><a href="mailto:${employees.email}">${employees.email}</a></li>
     <li class="list-group-item"><a href="https://github.com/${employees.github}">Github</a></li>
   </ul>
   
 <div>
-`
+`};
 
 //Intern
 const internTemplate = (employees) => `
@@ -33,7 +35,7 @@ const internTemplate = (employees) => `
   <h2 class = "card-subtitle">${employees.getRole()}<h2>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">${employees.id}</li>
-    <li class="list-group-item"><a href="${employees.email}">${employees.email}</a></li>
+    <li class="list-group-item"><a href="mailto:${employees.email}">${employees.email}</a></li>
     <li class="list-group-item">${employees.school}</li>
   </ul>
 <div>
@@ -56,15 +58,22 @@ const generatePage = (employees) => `
 <div class="row">
   <div class="col-sm-6">
     <div class = card>
-      ${employees.map((empObj) => {
-      if (employees.role === 'Manager') {
-        return managerTemplate(empObj)
+      ${employees.map((person) => {
+  
+        console.log(`person.role: ${person.getRole()}`)
+      if (person.getRole() === 'Manager') {
+        console.log('generating manager');
+        return managerTemplate(person)
       }
-       else if (employees.role === 'Engineer') {
-         return engineerTemplate(empObj)
+       else if (person.getRole() === 'Engineer') {
+        console.log('generating Engineer');
+
+         return engineerTemplate(person)
        }
        else {
-         return internTemplate(empObj)
+        console.log('person');
+
+         return internTemplate(person)
        }
       })
       }
