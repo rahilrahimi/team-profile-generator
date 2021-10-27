@@ -8,7 +8,7 @@ const managerTemplate = (employees) => `
   <h2 class = "card-subtitle"><i class="fas fa-mug-hot"></i>${employees.getRole()}<h2>
   </div>
   <div class="card-body">
-    <ul class="list-group">
+    <ul class="list-group text-left">
       <li class="list-group-item">ID:${employees.id}</li>
       <li class="list-group-item">Email:<a href="mailto:${employees.email}">${employees.email}</a></li>
       <li class="list-group-item">Office number:${employees.officeNumber}</li>
@@ -28,7 +28,7 @@ const engineerTemplate = (employees) => {
 <h2 class = "card-subtitle"><i class="fas fa-glasses"></i>${employees.getRole()}<h2>
 </div>
 <div class ="card-body">
-  <ul class="list-group">
+  <ul class="list-group text-left">
     <li class="list-group-item">ID:${employees.id}</li>
     <li class="list-group-item">Email:<a href="mailto:${employees.email}">${employees.email}</a></li>
     <li class="list-group-item">GitHub:<a target="_blank" href="https://github.com/${employees.github}">Github</a></li>
@@ -48,7 +48,7 @@ const internTemplate = (employees) => `
 </div>
 <div class ="card-body">
 
-<ul class="list-group">
+<ul class="list-group text-left">
 <li class="list-group-item">ID:${employees.id}</li>
 <li class="list-group-item">Email:<a href="mailto:${employees.email}">${employees.email}</a></li>
 <li class="list-group-item">School:${employees.school}</li>
