@@ -19,31 +19,26 @@ function getMangerInfo() {
     inquirer.prompt([{
         type: "input",
         name: "name",
-        message: "what is the manager's name"
+        message: "Enter the manager's name:"
 
     },
     {
         type: "input",
         name: "id",
-        message: "what is the manager's id"
+        message: "Enter the manager's ID:"
 
     },
     {
         type: "input",
         name: "email",
-        message: "what is the manager's email?"
+        message: "Enter the manager's email:"
     },
     {
         type: "input",
         name: "officeNumber",
-        message: "what is the manager's office number?"
+        message: "Enter the manager's office number:"
     },
-    // {
-    //     type: "list",
-    //     message: "Which type of team member would you like to add?",
-    //     name: "role",
-    //     choices: ["Engineer", "Intern", "no more"]
-    // },
+  
     ])
         .then(({ name, id, email, officeNumber }) => { //push manager object to employees array
             
@@ -59,12 +54,12 @@ function enterEmployee() {
             type: "list",
             message: "Which type of team member would you like to add?",
             name: "role",
-            choices: ["Engineer", "Intern", "no more team members to add"]
+            choices: ["Manager", "Engineer", "Intern", "Finish Team"]
         },            
     ]).then(({ role }) => {
-        if (role === 'no more team members to add') {
+        if (role === 'Finish Team') {
             // write to file
-            fs.writeFile('index.html', generatePage(employees), err => {
+            fs.writeFile('./dist/index.html', generatePage(employees), err => {
                 if (err) throw new Error(err);
             
                 console.log('Team profile complete! Check out index.html to see the output!');
@@ -81,15 +76,15 @@ function enterEmployee() {
 //base prompts for every type of employee to be concatenated with employee type specific prompts below
 const basePrompts = [{
     type: "input",
-    message: "what is the employee's name",
+    message: "Enter employeee's name:",
     name: "name"
 }, {
     type: "input",
-    message: "what is the employee's email",
+    message: "Enter employee's email:",
     name: "email"
 }, {
     type: "input",
-    message: "what is the employee's id",
+    message: "Enter employee's ID:",
     name: "id"
 }];
 
@@ -99,14 +94,14 @@ function getPromptByRole(role) {
     if (role === 'Intern') return basePrompts.concat([
       {
         type: "input",
-        message: "what is the intern's school",
+        message: "Enter the intern's school:",
         name: "school"
       }  
     ]);
     return basePrompts.concat([
         {
             type: "input",
-            message: "what is the engineer's github username",
+            message: "Enter the engineer's github username:",
             name: "github"
         }
     ]);
@@ -129,10 +124,5 @@ function getEmployeeInfo(role) {
 
         })
 }
-
-//write html.index file
-// need to pass argument to generatePage-> employees array????
-
-
 
 run();
