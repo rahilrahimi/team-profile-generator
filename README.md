@@ -1,8 +1,7 @@
 # team-profile-generator
 
-
 # Description
-Build a command-line application to manage a company's employee database, using Node.js, Inquirer, and MySQL.
+This is a Node.js command-line application that takes in information about employees on a software engineering team and generates an HTML webpage that displays summaries for each person. 
 
 # Installation
 - Dowload the code
@@ -20,3 +19,5 @@ Open in browser to view result.
 Used Jest for the tests. Each class has its own test suite.
 
 # Mock-Up
+https://watch.screencastify.com/v/glbmXYSh3OYS19Kq2p2v
+https://watch.screencastify.com/v/LP47bbmVs7hmPmDsDjVj
