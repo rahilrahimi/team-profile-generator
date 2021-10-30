@@ -19,5 +19,5 @@ Open in browser to view result.
 Used Jest for the tests. Each class has its own test suite.
 
 # Mock-Up
-https://watch.screencastify.com/v/3DJrPsfHj7Bwhz40Yf4N
+https://watch.screencastify.com/v/1nerZFIGnszl4B8z5UKI
 https://watch.screencastify.com/v/iHzB7qNhYfelPvAFWVmT
