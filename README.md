@@ -16,7 +16,7 @@ To use, run node index.js in terminal. You will be promted to enter information 
 Open in browser to view result.
 
 # Test
-Used Jest for the tests. Each class has its own test suite.
+Used Jest for the tests. Each class has its own test suite. First, install the Jest package, add "jest" to the test script in the package JSON then use this command "npm run test" in Terminal.
 
 # Mock-Up
 https://watch.screencastify.com/v/1nerZFIGnszl4B8z5UKI
